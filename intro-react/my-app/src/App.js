@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { TaskItem } from './TaskItem';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <form>
+        <input type="text" placeholder="Add Task"></input>
+        <button>Create Task</button>
+      </form>
+
+     <ul>
+       <TaskItem isChecked={true} taskName="Estudiar los tiempos de las canciones"></TaskItem>
+       <TaskItem isChecked={false} taskName="Asignar los instrumentos a los participante"></TaskItem>
+       <TaskItem isChecked={true} taskName="Realizar un ensayo de ensamble"></TaskItem>
+       <TaskItem isChecked={false} taskName="EHacer la grabacion del audio y su respectiva edición"></TaskItem>
+       <TaskItem isChecked={true} taskName="Realizar la grabacion del video y montarlo a la plataforma"></TaskItem>      
+     </ul> 
+    </main>
   );
 }
 
