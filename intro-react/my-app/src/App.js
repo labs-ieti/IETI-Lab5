@@ -33,11 +33,36 @@ function App() {
     setTasks(arr);
   };
 
+  const [text, setText] = useState("");
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (text === "") return;
+    setTasks(tasks.concat([
+      {
+        isCompleted: false,
+        taskName: text
+      }
+    ]));
+    setText("");
+  };
+
+  const inputTextHandler = (event) => {
+    const value = event.target.value;
+    setText(value);
+  };
+
+
 
   return (
     <main>
-      <form>
-        <input type="text" placeholder="Add Task"></input>
+      <form onSubmit={submitHandler}> 
+        <input 
+          value={text} 
+          onChange={inputTextHandler}
+          type="text" 
+          placeholder="Add Task">
+        </input>
         <button>Create Task</button>
       </form>
 
